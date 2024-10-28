@@ -4,6 +4,9 @@ on:
     push: # Event: whenever a push is made to the repository on the master branch
         branches:
             - main
+    schedule:
+        - cron:  0 8 * * * # Run the pipeline every day at 8am
+
     pull_request: #Event: Whenever a pull request is made to the repository
         branches: 
             - main
@@ -37,5 +40,13 @@ jobs:
         steps:  # Steps to be  executed in the job
             - name: "Running on workflow dispatch" #Step 1
               run: echo "Running on workflow dispatch"
+    
+    on-schedule: # job 5
+        if: github.event_name == 'schedule'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on schedule" #Step 1
+              run: echo "Running on schedule"<|eom_id|><|start_header_id|>assistant
+
 
 
