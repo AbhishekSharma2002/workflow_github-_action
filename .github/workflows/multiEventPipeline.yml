@@ -7,6 +7,7 @@ on:
     pull_request: #Event: Whenever a pull request is made to the repository
         branches: 
             - main
+    workflow_dispatch:
 
 jobs:
     on-push: #job 1
@@ -22,4 +23,13 @@ jobs:
         steps: # Steps to be  executed in the job
             - name: "Running on pull request" #Step 1
               run: echo "Running on pull request"
+    
+
+    on-workflow-dispatch: #job 3
+        if: github.event_name == 'workflow_dispatch'
+        runs-on: ubuntu-latest
+        steps:  # Steps to be  executed in the job
+            - name: "Running on workflow dispatch" #Step 1
+              run: echo "Running on workflow dispatch"
+
 
