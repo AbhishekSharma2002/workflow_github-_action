@@ -7,6 +7,9 @@ on:
     pull_request: #Event: Whenever a pull request is made to the repository
         branches: 
             - main
+        types:
+            - closed
+            - opened
     workflow_dispatch:
 
 jobs:
