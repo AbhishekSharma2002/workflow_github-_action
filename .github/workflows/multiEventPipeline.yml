@@ -9,13 +9,15 @@ on:
             - main
 
 jobs:
-    on-push: #job name
+    on-push: #job 1
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps: # Steps to be  executed in the job
 
             - name: "Running on main push" #Step 1
               run: echo "Running  on main push"
-    on-pull-request: # job name
+    on-pull-request: # job 2
+        if: github.event_name == 'pull_request'
         runs-on: ubuntu-latest
         steps: # Steps to be  executed in the job
             - name: "Running on pull request" #Step 1
