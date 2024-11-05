@@ -4,8 +4,8 @@ on:
     push: # Event: whenever a push is made to the repository on the master branch
         branches:
             - main
-    schedule:
-        - cron:  0 8 * * * # Run the pipeline every day at 8am
+    # schedule:
+    #     - cron:  0 8 * * * # Run the pipeline every day at 8am
 
     pull_request: #Event: Whenever a pull request is made to the repository
         branches: 
